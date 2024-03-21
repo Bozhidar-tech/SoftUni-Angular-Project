@@ -10,29 +10,38 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router
+  ) {}
 
-constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
   loginForm !: FormGroup;
+  errorMessage: string = '';
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
-    })
-  }
-
-  login(){
-    this.authService.loginService(this.loginForm.value)
-    .subscribe({
-      next: (res) =>{
-        localStorage.setItem('user_id', res.token);
-        this.authService.isLoggedIn$.next(true);
-        this.router.navigate(['home']);
-        this.loginForm.reset();
-      },
-      error: (err) => {
-        alert(err.message);
-      }
     });
+  }
+  login() {
+    this.authService.loginService(this.loginForm.value)
+      .subscribe({
+        next: (res) => {
+          localStorage.setItem('user_id', res.token);
+          this.authService.isLoggedIn$.next(true);
+          this.router.navigate(['home']);
+          this.loginForm.reset();
+          this.errorMessage = '';
+        },
+        error: (err) => {
+          if (err.status === 404) {
+            alert('Invalid email address');
+          } else if (err.status === 401){
+            alert('Wrong password');
+          }
+        }
+      });
   }
 }

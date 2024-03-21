@@ -42,7 +42,7 @@ export const login = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({
                 status: 404,
-                message: "User not found!"
+                message: "Invalid email address"
             });
         }
 
