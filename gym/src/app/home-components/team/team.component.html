@@ -1,0 +1,25 @@
+<section class="our-team" id="our_team">
+
+    <header class="section-header">
+      <h1>Meet Our Experienced Trainers</h1>
+      <p>In our gyms work the best professionals in every area</p>
+    </header>
+  
+    <div class="team-contents">
+      <div class="trainer-card" *ngFor="let trainer of trainers">
+        <div class="trainer-image">
+          <img src="{{ trainer.image }}" alt="{{ trainer.name }}">
+        </div>
+        <div class="trainer-desc">
+          <h2>{{ trainer.name }}</h2>
+          <p>{{ trainer.role }}</p>
+        </div>
+        <div class="trainer-contact">
+          <a href="{{ trainer.socialMedia.facebook }}"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="{{ trainer.socialMedia.twitter }}"><i class="fa-brands fa-twitter"></i></a>
+          <a href="{{ trainer.socialMedia.instagram }}"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  
+  </section>

@@ -1,0 +1,18 @@
+<div class="container">
+    <section class="week-days">
+      <div class="week-day">Daily Classes</div>
+    </section>
+  
+    <div *ngFor="let day of schedule">
+      <hr class="hr-text gradient" [attr.data-content]="day.day">
+  
+      <section class="classes">
+        <div class="class" *ngFor="let classItem of day.classes">
+          <div class="class">
+            <div class="class">{{ classItem.name }}<br>with trainer {{ classItem.trainer }}</div>
+            <div class="time">{{ classItem.time }}</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

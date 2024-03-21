@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="container">
+    <form class="register" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <h2>Registration</h2>
+
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" class="form-control" formControlName="fullName">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" class="form-control" formControlName="username">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" class="form-control" formControlName="email">
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" class="form-control" formControlName="phoneNumber">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" class="form-control" formControlName="password">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" class="form-control" formControlName="repeatPassword">
+          </div>
+        </div>
+
+        <div class="button">
+        <button [disabled]="!registrationForm.valid">Create Account</button>
+        </div>
+        
+        <p class="text-center">
+          Have an account?
+          <a routerLink="/login">Log In</a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+</div>

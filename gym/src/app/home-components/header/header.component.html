@@ -1,0 +1,37 @@
+<header>
+    <nav>
+        <div class="logo">
+            <a href=""><img src="../../../assets/logo.png" alt="logo"></a>
+        </div>
+
+        <ul class="menu">
+            <!-- Show these options when user is not logged in -->
+            <ng-container *ngIf="!isLoggedIn">
+                <li><a routerLink="/classes">Classes</a></li>
+                <li><a routerLink="/prices">Prices</a></li>
+                <li><a routerLink="/contact">Contact</a></li>
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ng-container>
+
+            <!-- Show these options when user is logged in -->
+            <ng-container *ngIf="isLoggedIn">
+                <li><a routerLink="/dashboard">My Dashboard</a></li>
+                <li><a routerLink="/contact">Contact</a></li>
+                <li><a routerLink="/classes">Classes</a></li>
+                <li><a routerLink="/home" (click)="logout()">Logout</a></li>
+            </ng-container>
+        </ul>
+    </nav>
+
+
+    <section class="slogan">
+        <div class="slogan-contents">
+            <h2>Craft your dream body at Gold's Gym</h2>
+            <h1>Fit body needs more training</h1>
+            <p>
+                Unlock your potential and begin a quest towards a healthier, more robust, and self-assured version of yourself. Enroll in "Gold's Gym" today and experience the remarkable metamorphosis your body can achieve!</p>
+            <button class="btn read-more-btn">Read More</button>
+        </div>
+    </section>
+</header>

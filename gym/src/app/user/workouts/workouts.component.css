@@ -1,0 +1,159 @@
+.navbar {
+  background-color: #222;
+  padding: 10px;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items li {
+  margin-right: 20px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-items a:hover {
+  
+  color: #FFFF00;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+
+.container h2 {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  color: #fff; 
+}
+
+.container h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+fieldset{
+  border: none;
+}
+
+.container form .workout-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+.container form .workout-details .form-group {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+.container form .workout-details .form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #fff; 
+}
+
+.container form .workout-details .form-group input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  background-color: #222;
+  color: #fff;
+}
+
+.container form .workout-details .form-group input:focus,
+.container form .workout-details .form-group input:valid {
+  border-color: #fff;
+}
+
+.button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+.button button:hover:enabled {
+  background: linear-gradient(135deg, #FF8C00, #333333);
+}
+
+.button button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.del{
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #222; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #CC0000;
+}
+/* Optional: Add styles for the table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}

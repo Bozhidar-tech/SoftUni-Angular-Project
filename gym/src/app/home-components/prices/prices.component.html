@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="container">
+    <h1>Plans & Pricing</h1>
+    <p>All plans include 7 days free trial</p>
+
+    <div class="content">
+      <div class="monthly">
+        <div class="pricing-table" *ngFor="let plan of plans">
+          <div class="ribbon">Sale</div>
+          <h3>{{ plan.title }}</h3>
+          <ul>
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+          <div class="price"><span>{{ plan.price }}</span> month</div>
+          <a [href]="plan.link">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

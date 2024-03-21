@@ -1,0 +1,59 @@
+<nav class="navbar">
+  <ul class="nav-items">
+    <li><a href="/">Home</a></li>
+    <li><a href="/dashboard">My Dashboard</a></li>
+  </ul>
+</nav>
+
+<div class="wrapper">
+  <div class="container">
+    <form class="workouts" [formGroup]="workoutForm" (submit)="addWorkout()">
+      <fieldset>
+        <h2>Workout Tracker</h2>
+
+        <div class="workout-details">
+          <div class="form-group">
+            <label for="workoutName">Workout Name:</label>
+            <input type="text" id="workoutName" formControlName="name" required>
+          </div>
+          <div class="form-group">
+            <label for="workoutCategory">Category:</label>
+            <input type="text" id="workoutCategory" formControlName="category" required>
+          </div>
+          <div class="form-group">
+            <label for="workoutDuration">Duration (minutes):</label>
+            <input type="number" id="workoutDuration" formControlName="duration" required>
+          </div>
+        </div>
+
+        <div class="button">
+          <button type="submit">Add Workout</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Duration (minutes)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workout of workouts">
+          <td>{{ workout.name }}</td>
+          <td>{{ workout.category }}</td>
+          <td>{{ workout.duration }}</td>
+          <td class="del">
+            <button class="delete-button" (click)="deleteWorkout(workout._id)">Delete</button>
+          </td>
+        </tr>
+        <tr *ngIf="workouts.length === 0">
+          <td colspan="4">No workouts found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

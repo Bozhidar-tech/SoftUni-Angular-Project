@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="container">
+    <form class="forgot-password" [formGroup]="resetForm">
+      <fieldset>
+        <h2>Reset Password</h2>
+        <p>Your Password must be at least 7 characters long</p>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">New Password</span>
+            <input type="password" class="form-control" formControlName="password">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" class="form-control" formControlName="confirmPassword">
+          </div>
+        </div>
+        <div class="button">
+          <button (click)="reset()">Reset Password</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

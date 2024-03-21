@@ -1,0 +1,116 @@
+/* Styles for the wrapper element */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #FFFF00, #000000);
+  }
+  
+  /* Remove border fromfieldset within wrapper */
+  .wrapper fieldset {
+    border: none;
+    padding: 0;
+  }
+  
+  /* Styles for the container element */
+  .container {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Styles for the container h2 element */
+  .container h2 {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    color: #fff;
+  }
+  
+  /* Add underline effect to h2 using pseudo-element */
+  .container h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #FFFF00, #000000);
+  }
+  
+  /* Styles for the user-details section within the form */
+  .container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  
+  /* Styles for input-box elements within user-details */
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  
+  /* Styles for details element within input-box */
+  .user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+  
+  /* Styles for input elements within input-box */
+  .user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  /* Styles for focused and valid input elements */
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid {
+    border-color: #222;
+  }
+  
+  /* Hides radio buttons (if applicable) */
+  form input[type="radio"] {
+    display: none;
+  }
+  
+  /* Styles for the button section */
+  .button {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  /* General styles for the button element */
+  .button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #FFFF00, #000000); /* Default background color */
+  }
+  
+  /* Styles for button on hover (when enabled) */
+  .button button:hover:enabled {
+    background: linear-gradient(135deg, #FF8C00, #333333); /* Change the background color when hovered and enabled */
+  }
+  

@@ -1,0 +1,73 @@
+section.about{
+	width: 100%;
+	padding: 50px 8% 20px;
+    background-color: #020202;
+    color: #FFFFFF;
+}
+.about .about-contents{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	grid-gap: 40px 5%;
+}
+.about-contents .about-left-col{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.about-contents .about-left-col img{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 2;
+}
+.about-contents .about-left-col::before{
+	position: absolute;
+	content: '';
+	width: calc(100% - 15px);
+	height: calc(100% - 15px);
+	top: -10px;
+	left: -10px;
+	z-index: 1;
+}
+.about-contents .about-right-col{
+	position: relative;
+}
+.about-contents .about-right-col h4{
+	font-size: 18px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+.about-contents .about-right-col h1{
+	font-size: 42px;
+	font-weight: 400;
+	margin: 5px 0px 15px;
+	text-transform: uppercase;
+}
+.about-contents .about-right-col p{
+	line-height: 1.4;
+}
+.about-contents .about-right-col .about-states{
+	display: flex;
+	margin-top: 40px;
+}
+.about-right-col .about-states .about-state{
+    border: 2px solid #ffdd00;
+    border-radius: 50px;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+}
+.about-states .about-state i{
+	margin-bottom: 10px;
+	font-size: 36px;
+}
+.about-states .about-state h2{
+	font-size: 22px;
+	font-weight: 500;
+}
+.about-states .about-state-1{
+	margin-right: 20px;
+}

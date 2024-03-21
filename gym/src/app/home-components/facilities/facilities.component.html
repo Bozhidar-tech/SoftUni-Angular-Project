@@ -1,0 +1,15 @@
+<section class="facilities">
+    <div class="facilities-contents">
+  
+      <div class="facility-item" *ngFor="let facility of facilities">
+        <div class="facility-icon">
+          <i class="fa-solid {{ facility.icon }}"></i>
+        </div>
+        <div class="facility-desc">
+          <h2>{{ facility.title }}</h2>
+          <p>{{ facility.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  

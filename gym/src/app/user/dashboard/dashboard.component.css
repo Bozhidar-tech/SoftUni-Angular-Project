@@ -1,0 +1,226 @@
+.container {
+  display: flex;
+  background-color: #222;
+  height: 100vh;
+}
+
+nav {
+  width: 250px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav .fas {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.nav-item {
+  margin-left: 5px;
+}
+
+a:hover {
+  color: #FFFF00;
+}
+
+.main {
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.main-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.main-skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 0 230px;
+  background: #222;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.card p {
+  font-size: 12px;
+}
+
+.card button {
+  background: linear-gradient(135deg, #FFFF00, #000000);
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: linear-gradient(135deg, #FF8C00, #333333);
+}
+
+.card i {
+  font-size: 22px;
+  padding: 10px;
+}
+
+/* Courses */
+.main-course {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.course-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  background: #222;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.course-box ul {
+  list-style: none;
+  display: flex;
+}
+
+.course-box ul li {
+  margin: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.course-box ul .active {
+  color: #fff;
+  border-bottom: 1px solid #000;
+}
+
+.course-box .course {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #222;
+}
+
+.box p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.box button {
+  background: linear-gradient(135deg, #FFFF00, #000000);
+  color: #fff;
+  width: 150px;
+  align-self: center;
+  padding: 7px 10px;
+  border-radius: 10px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+
+.box button:hover {
+  background: linear-gradient(135deg, #FF8C00, #333333);
+}
+
+.box i {
+  font-size: 5rem;
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  /* Container Styles */
+  .container {
+      flex-direction: row;
+  }
+
+  /* Navigation Styles */
+  nav {
+      width: 250px;
+  }
+
+  .logo {
+      justify-content: center;
+  }
+
+  nav ul {
+      padding-left: 0;
+  }
+
+  nav li {
+      margin-bottom: 0;
+  }
+
+  nav a {
+      display: inline-block;
+      padding: 10px 20px;
+  }
+
+  /* Main Content Styles */
+  .main {
+      padding: 40px;
+  }
+
+  .card {
+      margin-right: 20px;
+  }
+}

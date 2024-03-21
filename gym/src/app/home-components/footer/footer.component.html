@@ -1,0 +1,19 @@
+<section class="page-footer">
+
+    <div class="footer-contents">
+      <div class="footer-col" *ngFor="let column of footerColumns">
+        <div class="footer-col-title">
+          <h3>{{ column.title }}</h3>
+        </div>
+        <div class="footer-col-desc">
+          <a *ngFor="let link of column.links" [href]="link.link">{{ link.label }}</a>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  
+  <div class="copy-rights">
+    <p>Created By <b>Bozhidar Nunev</b> All Rights Reserved</p>
+  </div>
+  

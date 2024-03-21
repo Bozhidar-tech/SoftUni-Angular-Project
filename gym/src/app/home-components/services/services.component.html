@@ -1,0 +1,21 @@
+<section class="services" id="services">
+
+    <header class="section-header">
+      <h1>Services Which We Offer</h1>
+      <p>We believe that physical activity is an excellent means of preventing health and slowing down the aging process</p>
+    </header>
+  
+    <div class="services-contents">
+      <div class="service-box" *ngFor="let service of services">
+        <div class="service-icon-box">
+          <i class="fa-solid {{ service.icon }}"></i>
+        </div>
+        <div class="service-desc">
+          <h2>{{ service.title }}</h2>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  
