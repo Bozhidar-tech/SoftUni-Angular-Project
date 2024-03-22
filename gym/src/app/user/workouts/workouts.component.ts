@@ -72,14 +72,22 @@ export class WorkoutsComponent implements OnInit {
   }
 
   deleteWorkout(id: string): void {
-    this.workoutService.deleteWorkoutById(id).pipe(
-      tap(() => this.workouts = this.workouts.filter(workout => workout._id !== id)),
-      catchError(error => {
-        console.error('Error deleting workout:', error);
-        this.errorMessage = 'Failed to delete workout. Please try again later.';
-        throw this.errorMessage;
-      })
-    ).subscribe();
+    const confirmDelete = window.confirm('Are you sure you want to delete this workout?');
+
+    if (confirmDelete) {
+      this.workoutService.deleteWorkoutById(id).pipe(
+        tap(() => {
+          this.workouts = this.workouts.filter(workout => workout._id !== id);
+          alert('Workout deleted successfully.');
+        }),
+        catchError(error => {
+          console.error('Error deleting workout:', error);
+          this.errorMessage = 'Failed to delete workout. Please try again later.';
+          alert('Failed to delete workout. Please try again later.');
+          throw this.errorMessage;
+        })
+      ).subscribe();
+    }
   }
 
   dismissError(): void {
