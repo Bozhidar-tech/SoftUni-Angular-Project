@@ -13,7 +13,7 @@
 </header>
 <div class="container">
     <div class="product-card" *ngFor="let product of products">
-        <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+        <img [src]="product.imageUrl" [alt]="product.name" class="product-image" style="max-width: 300px; height: 200px;">
         <div class="product-details">
             <h2>{{ product.name }}</h2>
             <p class="product-description">{{ product.description }}</p>
