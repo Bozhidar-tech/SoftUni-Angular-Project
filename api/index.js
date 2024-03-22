@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoute from './routes/auth.js';
 import workoutRoute from './routes/workout.js';
+import productRoute from './routes/product.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser())
 app.use("/api/auth", authRoute);
 app.use("/api/workout", workoutRoute);
-
+app.use("/api/product", productRoute);
 
 // Error Handler Middleware
 app.use((err, req, res, next) => {

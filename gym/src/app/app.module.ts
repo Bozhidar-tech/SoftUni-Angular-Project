@@ -17,6 +17,7 @@ import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRoutingModule } from './user/user-routing.module';
+import { ShopComponent } from './home-components/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserRoutingModule } from './user/user-routing.module';
     ServicesComponent,
     TeamComponent,
     ClassesComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

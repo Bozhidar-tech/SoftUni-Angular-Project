@@ -1,6 +1,5 @@
 import Workout from "../models/workout.js";
 
-// Controller function to create a new workout
 export const createWorkout = async (req, res, next) => {
     try {
         const { name, category, duration } = req.body;
@@ -27,7 +26,6 @@ export const createWorkout = async (req, res, next) => {
     }
 };
 
-// Controller function to fetch all workouts of a user
 export const getAllWorkouts = async (req, res) => {
   try {
 
@@ -56,8 +54,7 @@ export const getAllWorkouts = async (req, res) => {
     });
   }
 };
-  
-  // Controller function to delete a workout by ID
+
   export const deleteWorkoutById = async (req, res) => {
     try {
       const userId = req.user.id;

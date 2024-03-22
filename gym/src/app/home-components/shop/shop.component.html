@@ -1,0 +1,24 @@
+<header>
+    <div class="header-content">
+        <h1>Gold's Gym Supplements</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <nav>
+            <a routerLink="/">Home</a>
+            <a routerLink="/cart">My Cart</a>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <div class="product-card" *ngFor="let product of products">
+        <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+        <div class="product-details">
+            <h2>{{ product.name }}</h2>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">Price: ${{ product.price }}</p>
+            <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+    </div>
+</div>
