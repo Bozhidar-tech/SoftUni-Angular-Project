@@ -5,7 +5,7 @@
         </div>
 
         <ul class="menu">
-            <!-- Show these options when user is not logged in -->
+            <!-- Navigation links for non-logged-in users -->
             <ng-container *ngIf="!isLoggedIn">
                 <li><a routerLink="/shop">Supplements</a></li>
                 <li><a routerLink="/classes">Classes</a></li>
@@ -15,7 +15,7 @@
                 <li><a routerLink="/register">Register</a></li>
             </ng-container>
 
-            <!-- Show these options when user is logged in -->
+            <!-- Navigation links for logged-in users -->
             <ng-container *ngIf="isLoggedIn">
                 <li><a routerLink="/dashboard">My Dashboard</a></li>
                 <li><a routerLink="/shop">Supplements</a></li>

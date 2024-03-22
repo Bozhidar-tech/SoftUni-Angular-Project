@@ -5,7 +5,8 @@ import { ShopService } from 'src/app/shared/shop.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/types/product';
 import { CartService } from 'src/app/shared/cart.service';
-
+import { AuthService } from 'src/app/shared/auth.service';
+import { CartItem } from 'src/app/types/cartItem';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -15,12 +16,14 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   productForm!: FormGroup;
   errorMessage: string = '';
+  isLoggedIn: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private productService: ShopService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +33,9 @@ export class ShopComponent implements OnInit {
       price: [0, Validators.required],
       imageUrl: ['', Validators.required]
     });
-
+    this.authService.isLoggedIn$.subscribe(res=>{
+      this.isLoggedIn = this.authService.isLoggedIn();
+    });
     this.loadProducts();
   }
 
@@ -88,8 +93,20 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product);
-    console.log('Adding to cart:', product);
+    // Check if the product already exists in the cart
+    const existingCartItemIndex = this.cartService.getCartItems().findIndex(item => item.product._id === product._id);
+    
+    if (existingCartItemIndex !== -1) {
+      // If the product exists in the cart, increment its quantity
+      this.cartService.incrementCartItemQuantity(existingCartItemIndex);
+    } else {
+      // If the product does not exist in the cart, add it as a new item
+      const cartItem: CartItem = {
+        product: product,
+        quantity: 1
+      };
+      this.cartService.addToCart(cartItem);
+    }
   }
 
   dismissError(): void {

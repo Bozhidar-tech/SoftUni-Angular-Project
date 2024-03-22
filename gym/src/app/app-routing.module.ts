@@ -6,6 +6,7 @@ import { ContactUsComponent } from './home-components/contact-us/contact-us.comp
 import { ClassesComponent } from './home-components/classes/classes.component';
 import { ResetComponent } from './user/reset/reset.component';
 import { ShopComponent } from './home-components/shop/shop.component';
+import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactUsComponent},
   { path: 'classes', component: ClassesComponent },
   { path: 'reset/:token', component: ResetComponent},
-  { path: 'shop', component: ShopComponent}
+  { path: 'shop', component: ShopComponent},
+  { path: 'my-cart', component: MyCartComponent}
 ];
 
 @NgModule({

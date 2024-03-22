@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRoutingModule } from './user/user-routing.module';
 import { ShopComponent } from './home-components/shop/shop.component';
+import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ShopComponent } from './home-components/shop/shop.component';
     TeamComponent,
     ClassesComponent,
     ShopComponent,
+    MyCartComponent,
   ],
   imports: [
     BrowserModule,

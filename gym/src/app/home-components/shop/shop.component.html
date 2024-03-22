@@ -6,8 +6,18 @@
             <button>Search</button>
         </div>
         <nav>
-            <a routerLink="/">Home</a>
-            <a routerLink="/cart">My Cart</a>
+            <!-- Navigation links for logged-in users -->
+            <ng-container *ngIf="!isLoggedIn">
+                <a routerLink="/">Home</a>
+                <a routerLink="/login">Login</a>
+                <a routerLink="/register">Register</a>
+            </ng-container>
+            <!-- Navigation links for non-logged-in users -->
+            <ng-container *ngIf="isLoggedIn">
+                <a routerLink="/">Home</a>
+                <a routerLink="/my-cart">My Cart</a>
+                <a routerLink="/dashboard">My Dashboard</a>
+            </ng-container>
         </nav>
     </div>
 </header>
