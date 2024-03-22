@@ -4,7 +4,6 @@ import { HomeComponent } from './home-components/home/home.component';
 import { PricesComponent } from './home-components/prices/prices.component';
 import { ContactUsComponent } from './home-components/contact-us/contact-us.component';
 import { ClassesComponent } from './home-components/classes/classes.component';
-import { ResetComponent } from './user/reset/reset.component';
 import { ShopComponent } from './home-components/shop/shop.component';
 import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
 
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'prices', component: PricesComponent },
   { path: 'contact', component: ContactUsComponent},
   { path: 'classes', component: ClassesComponent },
-  { path: 'reset/:token', component: ResetComponent},
   { path: 'shop', component: ShopComponent},
   { path: 'my-cart', component: MyCartComponent}
 ];

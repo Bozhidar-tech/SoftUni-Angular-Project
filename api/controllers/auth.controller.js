@@ -94,7 +94,7 @@ export const sendEmail = async (req, res, next) => {
         service: 'gmail',
         auth: {
             user: "bozhidar.nunev@gmail.com",
-            pass: "ybjspqdeqbkjgyut"
+            pass: ""
         }
     });
 
