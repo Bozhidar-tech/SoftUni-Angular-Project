@@ -1,4 +1,8 @@
-### `UserSchema`
+### User Model
+
+The following schema defines the structure of the "User" model in the application.
+
+#### `UserSchema`
 
 - **Fields:**
   - `fullName`: String
@@ -26,4 +30,4 @@
   - `timestamps`: true
     - **Description:** Automatically adds `createdAt` and `updatedAt` fields to the document.
 
-### Model Name: `User`
+#### Model Name: `User`
