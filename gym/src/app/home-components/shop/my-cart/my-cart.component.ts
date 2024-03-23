@@ -23,9 +23,13 @@ export class MyCartComponent implements OnInit {
   }
 
   clearCart(): void {
-    this.cartService.clearCart();
-    this.cartItems = [];
-    this.calculateTotalPrice();
+    const confirmClear = window.confirm('Are you sure you want to clear your cart?');
+    if (confirmClear) {
+      this.cartService.clearCart();
+      this.cartItems = [];
+      this.calculateTotalPrice();
+      window.alert('Your cart has been cleared.');
+    }
   }
 
   calculateTotalPrice(): void {
@@ -39,11 +43,14 @@ export class MyCartComponent implements OnInit {
   }
 
   removeItem(item: CartItem): void {
-    const index = this.cartItems.indexOf(item);
-    if (index !== -1) {
-      this.cartItems.splice(index, 1);
-      this.cartService.updateCart(this.cartItems);
-      this.calculateTotalPrice();
+    const confirmRemove = window.confirm('Are you sure you want to remove this item from your cart?');
+    if (confirmRemove) {
+      const index = this.cartItems.indexOf(item);
+      if (index !== -1) {
+        this.cartItems.splice(index, 1);
+        this.cartService.updateCart(this.cartItems);
+        this.calculateTotalPrice();
+      }
     }
   }
 }
