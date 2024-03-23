@@ -1,4 +1,4 @@
-<header>
+<header class="header">
     <div class="header-content">
         <h1>Gold's Gym Supplements</h1>
         <div class="search-bar">
@@ -15,7 +15,7 @@
             <!-- Navigation links for non-logged-in users -->
             <ng-container *ngIf="isLoggedIn">
                 <a routerLink="/">Home</a>
-                <a routerLink="/my-cart">My Cart</a>
+                <a routerLink="/my-cart">{{ isLoggedIn ? 'My Cart (' + cartItemCount + ')' : 'My Cart' }}</a>
                 <a routerLink="/dashboard">My Dashboard</a>
             </ng-container>
         </nav>

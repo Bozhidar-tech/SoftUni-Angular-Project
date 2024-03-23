@@ -32,6 +32,11 @@ export class MyCartComponent implements OnInit {
     this.totalPrice = this.cartItems.reduce((total, item) => total + (item.product.price * item.quantity), 0);
   }
 
+  updateQuantity(event: any, item: CartItem): void {
+    item.quantity = event;
+    this.cartService.updateCart(this.cartItems);
+    this.calculateTotalPrice();
+  }
 
   removeItem(item: CartItem): void {
     const index = this.cartItems.indexOf(item);

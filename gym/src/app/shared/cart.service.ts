@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../types/cartItem';
 
 @Injectable({
@@ -6,6 +7,8 @@ import { CartItem } from '../types/cartItem';
 })
 export class CartService {
   private readonly cartKey = 'cartItems';
+  private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>(this.getCartItems());
+  cartItems$: Observable<CartItem[]> = this.cartItemsSubject.asObservable();
 
   constructor() { }
 
@@ -14,23 +17,29 @@ export class CartService {
     return cartItemsJson ? JSON.parse(cartItemsJson) : [];
   }
 
+  private updateCartItems(cartItems: CartItem[]): void {
+    localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
+    this.cartItemsSubject.next(cartItems);
+  }
+
   addToCart(cartItem: CartItem): void {
     let cartItems = this.getCartItems();
     cartItems.push(cartItem);
-    localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
+    this.updateCartItems(cartItems);
   }
 
   clearCart(): void {
     localStorage.removeItem(this.cartKey);
+    this.cartItemsSubject.next([]);
   }
 
   updateCart(cartItems: CartItem[]): void {
-    localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
+    this.updateCartItems(cartItems);
   }
 
   incrementCartItemQuantity(index: number): void {
     const cartItems = this.getCartItems();
     cartItems[index].quantity++;
-    localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
+    this.updateCartItems(cartItems);
   }
 }

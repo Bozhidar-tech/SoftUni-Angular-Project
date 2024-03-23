@@ -7,6 +7,7 @@ import { Product } from 'src/app/types/product';
 import { CartService } from 'src/app/shared/cart.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { CartItem } from 'src/app/types/cartItem';
+
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -17,6 +18,7 @@ export class ShopComponent implements OnInit {
   productForm!: FormGroup;
   errorMessage: string = '';
   isLoggedIn: boolean = false;
+  cartItemCount: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -33,8 +35,11 @@ export class ShopComponent implements OnInit {
       price: [0, Validators.required],
       imageUrl: ['', Validators.required]
     });
-    this.authService.isLoggedIn$.subscribe(res=>{
+    this.authService.isLoggedIn$.subscribe(res => {
       this.isLoggedIn = this.authService.isLoggedIn();
+    });
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItemCount = items.length;
     });
     this.loadProducts();
   }
@@ -93,19 +98,20 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    // Check if the product already exists in the cart
-    const existingCartItemIndex = this.cartService.getCartItems().findIndex(item => item.product._id === product._id);
-    
-    if (existingCartItemIndex !== -1) {
-      // If the product exists in the cart, increment its quantity
-      this.cartService.incrementCartItemQuantity(existingCartItemIndex);
+    if (this.isLoggedIn) {
+      const existingCartItemIndex = this.cartService.getCartItems().findIndex(item => item.product._id === product._id);
+      if (existingCartItemIndex !== -1) {
+        this.cartService.incrementCartItemQuantity(existingCartItemIndex);
+      } else {
+        const cartItem: CartItem = {
+          product: product,
+          quantity: 1
+        };
+        this.cartService.addToCart(cartItem);
+        alert('Product added to the cart');
+      }
     } else {
-      // If the product does not exist in the cart, add it as a new item
-      const cartItem: CartItem = {
-        product: product,
-        quantity: 1
-      };
-      this.cartService.addToCart(cartItem);
+      alert('Please login in order to buy items');
     }
   }
 
