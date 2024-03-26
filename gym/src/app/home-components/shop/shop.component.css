@@ -52,7 +52,7 @@ header nav a:hover{
     display: flex;
     flex-wrap: wrap;
     color: #fff;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start; 
     background-color: #222;
     padding: 20px;
@@ -61,14 +61,18 @@ header nav a:hover{
 }
 
 .product-card {
-    width: 300px;
+    width: calc(20% - 20px);
     height: 350px;
-    margin-bottom: 20px;
+    margin-right: 20px;
     border: 1px solid #FFFF00;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     flex-direction: column;
+}
+
+.product-card:nth-child(5n) {
+    margin-right: 0;
 }
 
 .product-image {
