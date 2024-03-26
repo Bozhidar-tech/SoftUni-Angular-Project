@@ -68,10 +68,8 @@ export const updateProductById = async (req, res) => {
 
 export const deleteProductById = async (req, res) => {
     try {
-      const userId = req.user.id;
       const deletedProduct = await Product.findOneAndDelete({
-        _id: req.params.id,
-        createdBy: userId
+        _id: req.params.id
       });
       
       if (!deletedProduct) {

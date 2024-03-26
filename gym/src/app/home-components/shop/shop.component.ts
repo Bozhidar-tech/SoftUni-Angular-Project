@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit {
   errorMessage: string = '';
   isLoggedIn: boolean = false;
   cartItemCount: number = 0;
+  isAdmin: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +38,7 @@ export class ShopComponent implements OnInit {
     });
     this.authService.isLoggedIn$.subscribe(res => {
       this.isLoggedIn = this.authService.isLoggedIn();
+      this.isAdmin = this.authService.isAdmin();
     });
     this.cartService.cartItems$.subscribe(items => {
       this.cartItemCount = items.length;

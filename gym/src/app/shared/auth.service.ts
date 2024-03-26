@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { Login } from "../types/login";
 import { Register } from "../types/register";
 import { UpdateUser } from "../types/update";
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
     providedIn: "root"
@@ -42,4 +43,15 @@ export class AuthService {
     isLoggedIn(){
         return !!localStorage.getItem("user_id");
     }
+
+    isAdmin(): boolean {
+        const token = localStorage.getItem('user_id');
+        if (token) {
+            const decodedToken: any = jwtDecode(token);
+            return decodedToken.isAdmin === true;
+        }
+        return false; 
+    }
 }
+
+ 

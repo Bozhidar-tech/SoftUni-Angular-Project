@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginForm !: FormGroup;
   errorMessage: string = '';
+  isAdmin: boolean = false;
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           localStorage.setItem('user_id', res.token);
+          this.isAdmin = this.isAdmin;
           this.authService.isLoggedIn$.next(true);
           this.router.navigate(['home']);
           this.loginForm.reset();

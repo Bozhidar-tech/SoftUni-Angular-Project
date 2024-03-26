@@ -12,15 +12,19 @@
                 <a routerLink="/login">Login</a>
                 <a routerLink="/register">Register</a>
             </ng-container>
-            <!-- Navigation links for non-logged-in users -->
+            <!-- Navigation links for logged-in users -->
             <ng-container *ngIf="isLoggedIn">
                 <a routerLink="/">Home</a>
-                <a routerLink="/my-cart">{{ isLoggedIn ? 'My Cart (' + cartItemCount + ')' : 'My Cart' }}</a>
-                <a routerLink="/dashboard">My Dashboard</a>
+                <a routerLink="/dashboard">Dashboard</a>
+                <!-- Display "Cart" link for non-admin users -->
+                <a routerLink="/my-cart" *ngIf="!isAdmin">{{ isLoggedIn ? 'Cart (' + cartItemCount + ')' : 'Cart' }}</a>
+                <!-- Display "Create Product" link for admin users -->
+                <a routerLink="/create-product" *ngIf="isAdmin">Create Product</a>
             </ng-container>
         </nav>
     </div>
 </header>
+
 <div class="container">
     <div class="product-card" *ngFor="let product of products">
         <img [src]="product.imageUrl" [alt]="product.name" class="product-image" style="max-width: 300px; height: 200px;">
@@ -28,7 +32,11 @@
             <h2>{{ product.name }}</h2>
             <p class="product-description">{{ product.description }}</p>
             <p class="product-price">Price: ${{ product.price }}</p>
-            <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
+            <!-- Display "Delete" and "Update" buttons for admin users -->
+            <button class="delete-button" *ngIf="isAdmin" (click)="deleteProduct(product._id)">Delete</button>
+            <button class="update-button" *ngIf="isAdmin">Update</button>
+            <!-- Display "Add to Cart" button for non-admin users -->
+            <button class="add-to-cart-button" *ngIf="!isAdmin" (click)="addToCart(product)">Add to Cart</button>
         </div>
     </div>
 </div>
