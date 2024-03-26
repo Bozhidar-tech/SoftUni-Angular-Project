@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoute from './routes/auth.js';
 import workoutRoute from './routes/workout.js';
 import productRoute from './routes/product.js';
+import membershipRoute from './routes/membership.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -16,6 +17,7 @@ app.use(cookieParser())
 app.use("/api/auth", authRoute);
 app.use("/api/workout", workoutRoute);
 app.use("/api/product", productRoute);
+app.use("/api/membership", membershipRoute);
 
 // DB Connection
 const connectMongoDB = async()=>{

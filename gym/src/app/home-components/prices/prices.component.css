@@ -1,61 +1,65 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.wrapper{
+.wrapper {
     font-family: "Poppins", sans-serif;
     background: linear-gradient(135deg, #FFFF00, #000000);
     min-height: 100vh;
     padding: 50px 0;
 }
 
-h1{
+h1 {
     color: #fff;
     font-size: 36px;
 }
 
-p{
+p {
     color: #fff;
     font-size: 18px;
 }
 
-.container{
+.container {
     max-width: 1000px;
     text-align: center;
     margin: auto;
 }
 
-.content{
+.content {
     margin-top: 20px;
 }
 
-.pricing-table{
+.pricing-table {
     position: relative;
     margin: 15px;
     padding: 25px;
     border-radius: 5px;
     border: 1px solid lightgray;
     width: 30%;
+    height: 520px;
     display: inline-block;
     color: #fff;
     overflow: hidden;
-    box-shadow: 0 10px 8px -2px rgba(0,0,0, 0.54);
+    box-shadow: 0 10px 8px -2px rgba(0, 0, 0, 0.54);
+    position: relative;
 }
 
-.pricing-table:nth-child(1){
+.pricing-table .btn-container {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pricing-table:nth-child(1) {
     background: linear-gradient(180deg, rgba(245,83,89,1)0%,rgba(241,186,59,1)100%);
 }
 
-.pricing-table:nth-child(2){
+.pricing-table:nth-child(2) {
     background: linear-gradient(180deg, rgba(64,144,196,1)0%,rgba(172,64,135,1)100%);
 }
-.pricing-table:nth-child(3){
+
+.pricing-table:nth-child(3) {
     background: linear-gradient(180deg, rgba(136,244,136,1)0%,rgba(7,196,177,1)100%);
 }
 
-.pricing-table .ribbon{
+.pricing-table .ribbon {
     position: absolute;
     right: 0;
     background: #242336;
@@ -64,28 +68,28 @@ p{
     transform: translateX(30%) translateY(0%) rotate(45deg);
 }
 
-.pricing-table h3{
+.pricing-table h3 {
     font-size: 38px;
     font-weight: normal;
     margin: 20px 0;
 }
 
-.pricing-table ul{
+.pricing-table ul {
     line-height: 2;
     list-style-position: inside;
 }
 
-.pricing-table .price{
+.pricing-table .price {
     font-size: 20px;
     margin-top: 15px;
 }
 
-.pricing-table .price span{
+.pricing-table .price span {
     font-size: 35px;
     font-weight: bold;
 }
 
-.pricing-table a{
+.pricing-table a {
     background-color: #242336;
     color: #fff;
     padding: 15px 25px;
@@ -98,18 +102,18 @@ p{
     margin-top: 15px;
 }
 
-.pricing-table a:hover{
+.pricing-table a:hover {
     background-color: #32324c;
 }
 
-@media screen and (min-width:600px) and (max-width:999px){
-    .pricing-table{
+@media screen and (min-width: 600px) and (max-width: 999px) {
+    .pricing-table {
         width: 40%;
     }
 }
 
-@media screen and (max-width:600px){
-    .pricing-table{
+@media screen and (max-width: 600px) {
+    .pricing-table {
         width: 90%;
     }
 }

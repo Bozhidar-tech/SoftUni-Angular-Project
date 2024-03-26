@@ -5,14 +5,18 @@
 
     <div class="content">
       <div class="monthly">
-        <div class="pricing-table" *ngFor="let plan of plans">
+        <div class="pricing-table" *ngFor="let membership of memberships">
           <div class="ribbon">Sale</div>
-          <h3>{{ plan.title }}</h3>
+          <h3>{{ membership.title }}</h3>
           <ul>
-            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+            <li *ngFor="let feature of membership.features">{{ feature }}</li>
           </ul>
-          <div class="price"><span>{{ plan.price }}</span> month</div>
-          <a [href]="plan.link">Get Started</a>
+          <div class="price">
+            <span>{{ membership.price }}</span> $/month
+        </div>
+          <div class="btn-container">
+            <a href="{{ membership.link }}">Get Started</a>
+        </div>
         </div>
       </div>
     </div>

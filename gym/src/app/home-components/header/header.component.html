@@ -15,7 +15,7 @@
                     <div class="dropdown-content">
                         <a routerLink="/login">Login</a>
                         <a routerLink="/register">Register</a>
-                        <a routerLink="/contact">Contact</a>
+                        <a routerLink="/contact">Contact Us</a>
                     </div>
                 </li>
             </ng-container>
@@ -24,7 +24,7 @@
             <ng-container *ngIf="isLoggedIn">
                 <li><a routerLink="/dashboard">My Dashboard</a></li>
                 <li><a routerLink="/shop">Supplements</a></li>
-                <li><a routerLink="/contact">Contact</a></li>
+                <li><a routerLink="/contact">Contact Us</a></li>
                 <li><a routerLink="/classes">Classes</a></li>
                 <li><a routerLink="/home" (click)="logout()">Logout</a></li>
             </ng-container>
