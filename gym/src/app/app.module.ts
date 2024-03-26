@@ -20,6 +20,7 @@ import { UserRoutingModule } from './user/user-routing.module';
 import { ShopComponent } from './home-components/shop/shop.component';
 import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
 import { CreateProductComponent } from './home-components/shop/create-product/create-product.component';
+import { UpdateProductComponent } from './home-components/shop/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CreateProductComponent } from './home-components/shop/create-product/cr
     ShopComponent,
     MyCartComponent,
     CreateProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

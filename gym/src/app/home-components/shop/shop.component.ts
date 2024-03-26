@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, tap } from 'rxjs/operators';
 import { ShopService } from 'src/app/shared/shop.service';
-import { Router } from '@angular/router';
 import { Product } from 'src/app/types/product';
 import { CartService } from 'src/app/shared/cart.service';
 import { AuthService } from 'src/app/shared/auth.service';
@@ -25,7 +24,6 @@ export class ShopComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productService: ShopService,
-    private router: Router,
     private cartService: CartService,
     private authService: AuthService
   ) { }
@@ -65,28 +63,6 @@ export class ShopComponent implements OnInit {
         }
       }
     });
-  }
-
-  addProduct(): void {
-    if (this.productForm.valid) {
-      const newProduct = this.productForm.value;
-      this.productService.createProduct(newProduct)
-        .pipe(
-          tap(() => {
-            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-              this.router.navigate(['/products']);
-            });
-          }),
-          catchError(error => {
-            console.error('Error adding product:', error);
-            this.errorMessage = 'Failed to add product. Please try again later.';
-            throw this.errorMessage;
-          })
-        )
-        .subscribe(() => {
-          this.loadProducts();
-        });
-    }
   }
 
   deleteProduct(id: string): void {

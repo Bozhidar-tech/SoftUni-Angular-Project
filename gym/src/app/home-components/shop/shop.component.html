@@ -34,7 +34,7 @@
             <p class="product-price">Price: ${{ product.price }}</p>
             <!-- Display "Delete" and "Update" buttons for admin users -->
             <button class="delete-button" *ngIf="isAdmin" (click)="deleteProduct(product._id)">Delete</button>
-            <button class="update-button" *ngIf="isAdmin">Update</button>
+            <a class="update-button" *ngIf="isAdmin" [routerLink]="['/update-product', product._id]">Update</a>
             <!-- Display "Add to Cart" button for non-admin users -->
             <button class="add-to-cart-button" *ngIf="!isAdmin" (click)="addToCart(product)">Add to Cart</button>
         </div>

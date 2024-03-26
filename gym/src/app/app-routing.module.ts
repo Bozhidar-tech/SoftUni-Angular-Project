@@ -7,6 +7,7 @@ import { ClassesComponent } from './home-components/classes/classes.component';
 import { ShopComponent } from './home-components/shop/shop.component';
 import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
 import { CreateProductComponent } from './home-components/shop/create-product/create-product.component';
+import { UpdateProductComponent } from './home-components/shop/update-product/update-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'classes', component: ClassesComponent },
   { path: 'shop', component: ShopComponent},
   { path: 'my-cart', component: MyCartComponent},
-  { path: 'create-product', component: CreateProductComponent}
+  { path: 'create-product', component: CreateProductComponent},
+  { path: 'update-product/:id', component: UpdateProductComponent }
+
 ];
 
 @NgModule({

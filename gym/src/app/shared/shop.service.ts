@@ -23,6 +23,10 @@ export class ShopService {
     return this.http.get<Product[]>(`${apiUrls.productsServiceApi}getAll`);
   }
 
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<Product>(`${apiUrls.productsServiceApi}${id}`);
+  }
+
   createProduct(productData: Product): Observable<Product> {
     return this.http.post<Product>(`${apiUrls.productsServiceApi}create`, productData, { headers: this.getHeaders() });
   }
