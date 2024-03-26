@@ -35,7 +35,7 @@ export class ShopService {
     return this.http.put<Product>(`${apiUrls.productsServiceApi}${id}`, productData, { headers: this.getHeaders() });
   }
 
-  deleteProduct(id: string): Observable<any> {
-    return this.http.delete<any>(`${apiUrls.productsServiceApi}${id}`, { headers: this.getHeaders() });
+  deleteProduct(id: string): Observable<Product> {
+    return this.http.delete<Product>(`${apiUrls.productsServiceApi}${id}`, { headers: this.getHeaders() });
   }
 }
