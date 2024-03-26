@@ -7,6 +7,7 @@ import { Product } from 'src/app/types/product';
 import { CartService } from 'src/app/shared/cart.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { CartItem } from 'src/app/types/cartItem';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -89,14 +90,20 @@ export class ShopComponent implements OnInit {
   }
 
   deleteProduct(id: string): void {
-    this.productService.deleteProduct(id).pipe(
-      tap(() => this.products = this.products.filter(product => product._id !== id)),
-      catchError(error => {
-        console.error('Error deleting product:', error);
-        this.errorMessage = 'Failed to delete product. Please try again later.';
-        throw this.errorMessage;
-      })
-    ).subscribe();
+    if (confirm("Are you sure you want to delete the product?")) {
+      this.productService.deleteProduct(id).pipe(
+        tap(() => {
+          this.products = this.products.filter(product => product._id !== id);
+          alert('Product deleted successfully');
+        }),
+        catchError(error => {
+          console.error('Error deleting product:', error);
+          this.errorMessage = 'Failed to delete product. Please try again later.';
+          alert(this.errorMessage);
+          return throwError(() => new Error(this.errorMessage));
+        })
+      ).subscribe();
+    }
   }
 
   addToCart(product: Product): void {
