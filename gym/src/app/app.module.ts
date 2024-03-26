@@ -14,11 +14,12 @@ import { ServicesComponent } from './home-components/services/services.component
 import { TeamComponent } from './home-components/team/team.component';
 import { ClassesComponent } from './home-components/classes/classes.component';
 import { UserModule } from './user/user.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRoutingModule } from './user/user-routing.module';
 import { ShopComponent } from './home-components/shop/shop.component';
 import { MyCartComponent } from './home-components/shop/my-cart/my-cart.component';
+import { CreateProductComponent } from './home-components/shop/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MyCartComponent } from './home-components/shop/my-cart/my-cart.componen
     ClassesComponent,
     ShopComponent,
     MyCartComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { MyCartComponent } from './home-components/shop/my-cart/my-cart.componen
     UserModule,
     FormsModule,
     HttpClientModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

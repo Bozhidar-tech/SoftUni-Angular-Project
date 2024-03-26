@@ -1,0 +1,147 @@
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+.wrapper fieldset {
+    border: none;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container h2 {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    color: #fff;
+}
+
+.container h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+.container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.container form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.container form .user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.container form .user-details .input-box input,
+.container form .user-details .input-box textarea {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background-color: #222;
+    color: #fff;
+}
+
+.container form .user-details .input-box input:focus,
+.container form .user-details .input-box input:valid,
+.container form .user-details .input-box textarea:focus,
+.container form .user-details .input-box textarea:valid {
+    border-color: #222;
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #FFFF00, #000000);
+}
+
+.button button:hover:enabled {
+    background: linear-gradient(135deg, #FF8C00, #333333);
+}
+
+.button button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.text-center a {
+    background: linear-gradient(135deg, #FFFF00, #000000);
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.text-center a:hover {
+    background: linear-gradient(135deg, #FF8C00, #333333);
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .container form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .container form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 0;
+    }
+}

@@ -17,7 +17,7 @@ export class PricesComponent {
         'Simply pay by direct debit'
       ],
       price: '$25',
-      link: '#'
+      link: '/register'
     },
     {
       title: 'Premium',
@@ -29,7 +29,7 @@ export class PricesComponent {
         'Free drinks, Wi-Fi and Parking'
       ],
       price: '$45',
-      link: '#'
+      link: '/register'
     },
     {
       title: 'Ultimate',
@@ -40,7 +40,7 @@ export class PricesComponent {
         'Free drinks, Wi-Fi and Parking'
       ],
       price: '$75',
-      link: '#'
+      link: '/register'
     }
   ];
 }

@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="container">
+      <form class="login" [formGroup]="productForm" (ngSubmit)="submitForm()">
+        <fieldset>
+          <h2>Add Product</h2>
+  
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input type="text" class="form-control" formControlName="name" placeholder="Product Name">
+            </div>
+            <div class="input-box">
+              <span class="details">Description</span>
+              <textarea class="form-control" formControlName="description" placeholder="Product Description"></textarea>
+            </div>
+            <div class="input-box">
+              <span class="details">Price</span>
+              <input type="number" class="form-control" formControlName="price" placeholder="Product Price">
+            </div>
+            <div class="input-box">
+              <span class="details">Image URL</span>
+              <input type="text" class="form-control" formControlName="imageUrl" placeholder="Image URL">
+            </div>
+          </div>
+  
+          <div class="button">
+            <button [disabled]="!productForm.valid">Add Product</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  
