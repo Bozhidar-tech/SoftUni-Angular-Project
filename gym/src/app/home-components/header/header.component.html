@@ -10,9 +10,14 @@
                 <li><a routerLink="/shop">Supplements</a></li>
                 <li><a routerLink="/classes">Classes</a></li>
                 <li><a routerLink="/prices">Memberships</a></li>
-                <li><a routerLink="/contact">Contact</a></li>
-                <li><a routerLink="/login">Login</a></li>
-                <li><a routerLink="/register">Register</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">More <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a routerLink="/login">Login</a>
+                        <a routerLink="/register">Register</a>
+                        <a routerLink="/contact">Contact</a>
+                    </div>
+                </li>
             </ng-container>
 
             <!-- Navigation links for logged-in users -->
@@ -26,13 +31,11 @@
         </ul>
     </nav>
 
-
     <section class="slogan">
         <div class="slogan-contents">
             <h2>Craft your dream body at Gold's Gym</h2>
             <h1>Fit body needs more training</h1>
-            <p>
-                Unlock your potential and begin a quest towards a healthier, more robust, and self-assured version of yourself. Enroll in "Gold's Gym" today and experience the remarkable metamorphosis your body can achieve!</p>
+            <p>Unlock your potential and begin a quest towards a healthier, more robust, and self-assured version of yourself. Enroll in "Gold's Gym" today and experience the remarkable metamorphosis your body can achieve!</p>
             <button class="btn read-more-btn">Read More</button>
         </div>
     </section>
