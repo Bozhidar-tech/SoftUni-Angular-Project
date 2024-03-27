@@ -8,9 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { UpdateDataComponent } from './update-data/update-data.component';
+import { NutritionComponent } from './nutrition/nutrition.component';
+import { CreateArticleComponent } from './nutrition/create-article/create-article.component';
+import { UpdateArticleComponent } from './nutrition/update-article/update-article.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, WorkoutsComponent, UpdateDataComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, WorkoutsComponent, UpdateDataComponent, NutritionComponent, CreateArticleComponent, UpdateArticleComponent],
   imports: [CommonModule,UserRoutingModule, RouterModule, ReactiveFormsModule, FormsModule],
 })
 export class UserModule {}

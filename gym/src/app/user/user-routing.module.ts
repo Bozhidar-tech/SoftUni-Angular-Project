@@ -8,6 +8,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { UpdateDataComponent } from './update-data/update-data.component';
 import { authGuard } from '../guards/auth-guard.guard';
+import { NutritionComponent } from './nutrition/nutrition.component';
+import { UpdateArticleComponent } from './nutrition/update-article/update-article.component';
+import { CreateArticleComponent } from './nutrition/create-article/create-article.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,7 +19,10 @@ const routes: Routes = [
   { path: 'reset/:token', component: ResetComponent, canActivate: [authGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'workouts', component: WorkoutsComponent, canActivate: [authGuard]},
-  { path: 'update-data', component: UpdateDataComponent, canActivate: [authGuard]}
+  { path: 'update-data', component: UpdateDataComponent, canActivate: [authGuard]},
+  { path: 'nutrition', component: NutritionComponent, canActivate: [authGuard]},
+  { path: 'create-article', component: CreateArticleComponent, canActivate: [authGuard]},
+  { path: 'update-article/:id', component: UpdateArticleComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

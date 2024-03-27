@@ -1,0 +1,43 @@
+<header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li *ngIf="isAdmin"><a href="/create-article">Create Article</a></li>
+      </ul>
+    </nav>
+</header>
+
+<div class="wrapper">
+    <div class="container">
+        <h1>Latest Articles</h1>
+        <p>Stay updated with our latest articles</p>
+
+        <div class="content">
+            <div class="article-list">
+                <div class="article" *ngFor="let article of articles">
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.content }}</p>
+                    <div class="info">
+                        <p>Author: {{ article.author }}</p>
+                        <p>Published: {{ article.createdAt | date }}</p>
+                    </div>
+                    <div class="tags">
+                        <span *ngFor="let tag of article.tags">{{ tag }}</span>
+                    </div>
+                    <div class="actions" *ngIf="isAdmin">
+                        <button (click)="deleteArticle(article._id)">Delete</button>
+                        <button [routerLink]="['/update-article', article._id]">Update</button>
+                    </div>
+                    <div class="actions" *ngIf="!isAdmin">
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Bozhidar Nunev. All rights reserved.</p>
+</footer>

@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <div class="container">
+        <form class="login" [formGroup]="articleForm" (ngSubmit)="submitForm()">
+            <fieldset>
+                <h2>Update Article</h2>
+
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Title</span>
+                        <input type="text" class="form-control" formControlName="title" placeholder="Article Title">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Content</span>
+                        <textarea class="form-control" formControlName="content" placeholder="Article Content"></textarea>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Author</span>
+                        <input type="text" class="form-control" formControlName="author" placeholder="Article Author">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Tags</span>
+                        <input type="text" class="form-control" formControlName="tags" placeholder="Article Tags">
+                    </div>
+                </div>
+
+                <div class="button">
+                    <button [disabled]="!articleForm.valid">Update Article</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
