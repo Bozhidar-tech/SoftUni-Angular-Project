@@ -65,4 +65,9 @@ export class NutritionComponent implements OnInit {
       ).subscribe();
     }
   }
+
+  logout(){
+    localStorage.removeItem("user_id");
+    this.authService.isLoggedIn$.next(false);
+  }
 }

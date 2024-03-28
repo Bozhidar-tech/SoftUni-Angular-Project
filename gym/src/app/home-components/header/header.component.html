@@ -8,6 +8,7 @@
             <!-- Navigation links for non-logged-in users -->
             <ng-container *ngIf="!isLoggedIn">
                 <li><a routerLink="/shop">Supplements</a></li>
+                <li><a routerLink="/nutrition">Nutrition</a></li>
                 <li><a routerLink="/classes">Classes</a></li>
                 <li><a routerLink="/prices">Memberships</a></li>
                 <li class="dropdown">
@@ -24,6 +25,7 @@
             <ng-container *ngIf="isLoggedIn">
                 <li><a routerLink="/dashboard">Dashboard</a></li>
                 <li><a routerLink="/shop">Supplements</a></li>
+                <li><a routerLink="/nutrition">Nutrition</a></li>
                 <li><a routerLink="/contact">Contact Us</a></li>
                 <li><a routerLink="/classes">Classes</a></li>
                 <li><a routerLink="/home" (click)="logout()">Logout</a></li>

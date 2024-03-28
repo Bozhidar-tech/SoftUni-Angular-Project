@@ -1,17 +1,18 @@
 <header>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Dashboard</a></li>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
         <li *ngIf="isAdmin"><a href="/create-article">Create Article</a></li>
+        <li><a routerLink="/home" (click)="logout()">Logout</a></li>
       </ul>
     </nav>
 </header>
 
 <div class="wrapper">
     <div class="container">
-        <h1>Latest Articles</h1>
-        <p>Stay updated with our latest articles</p>
+        <h1>Latest Nutrition Articles</h1>
+        <p>Stay updated with the latest trends</p>
 
         <div class="content">
             <div class="article-list">
@@ -28,9 +29,6 @@
                     <div class="actions" *ngIf="isAdmin">
                         <button (click)="deleteArticle(article._id)">Delete</button>
                         <button [routerLink]="['/update-article', article._id]">Update</button>
-                    </div>
-                    <div class="actions" *ngIf="!isAdmin">
-                        <a href="#">Read More</a>
                     </div>
                 </div>
             </div>

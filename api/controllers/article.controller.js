@@ -1,4 +1,5 @@
 import Article from '../models/Article.js';
+import User from '../models/User.js';
 
 export const getAllArticles = async (req, res) => {
     try {
@@ -38,12 +39,19 @@ export const createArticle = async (req, res, next) => {
 
         const { title, content, tags } = req.body;
         const userId = req.user.id;
-        console.log(req.user);
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return next(CreateError(404, "User not found!"));
+        }
+
+        const fullName = user.fullName;
 
         const article = new Article({
             title,
             content,
-            author: userId,
+            author: fullName,
             tags
         });
 
