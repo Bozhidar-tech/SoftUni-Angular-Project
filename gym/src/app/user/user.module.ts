@@ -11,9 +11,10 @@ import { UpdateDataComponent } from './update-data/update-data.component';
 import { NutritionComponent } from './nutrition/nutrition.component';
 import { CreateArticleComponent } from './nutrition/create-article/create-article.component';
 import { UpdateArticleComponent } from './nutrition/update-article/update-article.component';
+import { StrengthTrainingComponent } from './strength-training/strength-training.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, WorkoutsComponent, UpdateDataComponent, NutritionComponent, CreateArticleComponent, UpdateArticleComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, WorkoutsComponent, UpdateDataComponent, NutritionComponent, CreateArticleComponent, UpdateArticleComponent, StrengthTrainingComponent],
   imports: [CommonModule,UserRoutingModule, RouterModule, ReactiveFormsModule, FormsModule],
 })
 export class UserModule {}

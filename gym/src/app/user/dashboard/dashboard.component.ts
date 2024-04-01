@@ -14,4 +14,8 @@ export class DashboardComponent {
     localStorage.removeItem('user_id');
     this.router.navigate(['/home']);
   }
+
+  redirectToStrengthTraining(): void {
+    this.router.navigate(['/strength-training']);
+  }
 }

@@ -6,6 +6,7 @@ import workoutRoute from './routes/workout.js';
 import productRoute from './routes/product.js';
 import membershipRoute from './routes/membership.js';
 import articleRoute from './routes/article.js';
+import exerciseRoute from './routes/exercises.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -20,6 +21,7 @@ app.use("/api/workout", workoutRoute);
 app.use("/api/product", productRoute);
 app.use("/api/membership", membershipRoute);
 app.use("/api/article", articleRoute);
+app.use("/api/exercises", exerciseRoute);
 
 // DB Connection
 const connectMongoDB = async()=>{
