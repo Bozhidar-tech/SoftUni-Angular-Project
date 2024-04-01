@@ -11,6 +11,7 @@ import { authGuard } from '../guards/auth-guard.guard';
 import { NutritionComponent } from './nutrition/nutrition.component';
 import { UpdateArticleComponent } from './nutrition/update-article/update-article.component';
 import { CreateArticleComponent } from './nutrition/create-article/create-article.component';
+import { StrengthTrainingComponent } from './strength-training/strength-training.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'nutrition', component: NutritionComponent, canActivate: [authGuard]},
   { path: 'create-article', component: CreateArticleComponent, canActivate: [authGuard]},
   { path: 'update-article/:id', component: UpdateArticleComponent, canActivate: [authGuard]},
+  { path: 'strength-training', component: StrengthTrainingComponent, canActivate: [authGuard]},
+
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+.container{
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+}
+
+.video-group {
+    margin-bottom: 20px;
+  }
+  
+  .video-container {
+    display: flex;
+    overflow-x: auto; /* Add horizontal scroll if needed */
+  }
+  
+  .video {
+    margin-right: 10px;
+  }
+  
+  .video:last-child {
+    margin-right: 0; /* Remove right margin for the last video */
+  }
