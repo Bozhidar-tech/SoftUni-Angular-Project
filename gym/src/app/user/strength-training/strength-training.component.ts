@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Exercise } from 'src/app/types/exercise';
 import { ExerciseService } from 'src/app/shared/exercises.service';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { AuthService } from 'src/app/shared/auth.service';
 @Component({
   selector: 'app-strength-training',
   templateUrl: './strength-training.component.html',
@@ -13,7 +13,7 @@ export class StrengthTrainingComponent implements OnInit {
   exercises: Exercise[] = [];
   errorMessage: string = '';
 
-  constructor(private exerciseService: ExerciseService, private sanitizer: DomSanitizer) {}
+  constructor(private exerciseService: ExerciseService, private sanitizer: DomSanitizer, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadExercises();
@@ -37,5 +37,10 @@ export class StrengthTrainingComponent implements OnInit {
         this.errorMessage = 'Failed to fetch exercises. Please try again later.';
       }
     });
+  }
+
+  logout(){
+    localStorage.removeItem("user_id");
+    this.authService.isLoggedIn$.next(false);
   }
 }

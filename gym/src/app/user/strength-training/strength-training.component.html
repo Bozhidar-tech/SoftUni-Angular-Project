@@ -1,12 +1,20 @@
+<div class="header">
+  <a routerLink="/">Home</a>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a (click)="logout()">Logout</a>
+</div>
+
 <div class="container">
-  <div class="video-group">
-    <div class="video-container">
+  <div class="video-container">
       <div *ngFor="let exercise of exercises" class="video">
-        <p>{{ exercise.name }}</p>
-        <p>{{ exercise.description }}</p>
-        <p>{{ exercise.bodyPart }}</p>
-        <iframe width="560" height="315" [src]="exercise.videoUrl" frameborder="0" allowfullscreen></iframe>
+          <p>{{ exercise.name }}</p>
+          <p>{{ exercise.description }}</p>
+          <p>{{ exercise.bodyPart }}</p>
+          <iframe width="560" height="315" [src]="exercise.videoUrl" frameborder="0" allowfullscreen></iframe>
       </div>
-    </div>
   </div>
 </div>
+
+<footer>
+  <p>&copy; 2024 Bozhidar Nunev. All rights reserved.</p>
+</footer>

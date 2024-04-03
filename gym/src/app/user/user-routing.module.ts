@@ -14,7 +14,7 @@ import { CreateArticleComponent } from './nutrition/create-article/create-articl
 import { StrengthTrainingComponent } from './strength-training/strength-training.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
   { path: 'reset/:token', component: ResetComponent, canActivate: [authGuard]},
