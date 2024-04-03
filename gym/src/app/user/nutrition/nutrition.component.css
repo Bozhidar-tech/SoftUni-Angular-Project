@@ -56,8 +56,12 @@ h1 {
 }
 
 .article {
-    border: 1px solid #FFFF00;
+    border: 1px solid #fff;
     padding: 20px;
+}
+
+.article:hover{
+    border: 1px solid #FFFF00;
 }
 
 .article h3 {

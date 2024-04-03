@@ -29,12 +29,19 @@
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: start;
+  padding: 10px;
 }
 
 .video {
   width: calc(25% - 20px);
   margin-bottom: 20px;
   padding: 10px;
+  border: 1px solid #fff;
+}
+
+.video:hover{
+  color: #FFFF00;
+  border: 1px solid #FFFF00;
 }
 
 .video p {
