@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   const router: Router = inject(Router);
 
   // Define the protected routes
-  const protectedRoutes: string[] = ['/dashboard', '/workouts', '/update-data', '/reset/:token', '/update-product/:id', '/my-cart', '/create-product', '/nutrition', '/create-article', '/update-article/:id', '/strength-training',];
+  const protectedRoutes: string[] = ['/dashboard', '/workouts', '/update-data', '/reset/:token', '/update-product/:id', '/my-cart', '/create-product', '/create-article', '/update-article/:id', '/strength-training'];
 
   // Check if the user is logged in
   const session = localStorage.getItem('user_id');

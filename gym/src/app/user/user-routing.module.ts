@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'workouts', component: WorkoutsComponent, canActivate: [authGuard]},
   { path: 'update-data', component: UpdateDataComponent, canActivate: [authGuard]},
-  { path: 'nutrition', component: NutritionComponent, canActivate: [authGuard]},
+  { path: 'nutrition', component: NutritionComponent},
   { path: 'create-article', component: CreateArticleComponent, canActivate: [authGuard]},
   { path: 'update-article/:id', component: UpdateArticleComponent, canActivate: [authGuard]},
   { path: 'strength-training', component: StrengthTrainingComponent, canActivate: [authGuard]},

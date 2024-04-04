@@ -64,20 +64,19 @@ header nav a:hover{
     width: calc(20% - 20px);
     height: 350px;
     margin-right: 20px;
-    border: 1px solid #FFFF00;
+    border: 1px solid #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     flex-direction: column;
 }
 
-.product-card:nth-child(5n) {
-    margin-right: 0;
+.product-card:hover{
+    border: 1px solid #FFFF00;
 }
 
-.product-image {
-    max-width: 100%;
-    height: auto;
+.product-card:nth-child(5n) {
+    margin-right: 0;
 }
 
 .product-details {
