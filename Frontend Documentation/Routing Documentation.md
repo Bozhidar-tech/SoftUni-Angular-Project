@@ -31,3 +31,14 @@ The following routing configuration defines the paths and corresponding componen
 - **Path:** `/my-cart`
   - **Component:** `MyCartComponent`
   - **Description:** Displays the shopping cart with added items.
+
+- **Path:** `/create-product`
+  - **Component:** `CreateProductComponent`
+  - **Description:** Component for creating a new product.
+  - **Guard:** `authGuard` (Authentication required)
+
+- **Path:** `/update-product/:id`
+  - **Component:** `UpdateProductComponent`
+  - **Description:** Component for updating an existing product.
+  - **Guard:** `authGuard` (Authentication required)
+
