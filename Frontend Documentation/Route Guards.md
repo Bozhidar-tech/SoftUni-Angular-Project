@@ -1,22 +1,22 @@
-# Authentication Guard
+#### AuthGuard Function Documentation
 
-## Overview
-The `authGuard` function is an Angular routing guard designed to restrict access to certain routes based on user authentication status.
+The `authGuard` function is a custom Angular route guard responsible for restricting access to protected routes based on user authentication status.
 
-## API Documentation
+##### Parameters
 
-### `authGuard(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean`
+- `route: ActivatedRouteSnapshot`: An Angular ActivatedRouteSnapshot object representing the current route being activated.
+- `state: RouterStateSnapshot`: An Angular RouterStateSnapshot object representing the state of the router at the time of activation.
 
-Checks whether the user is authenticated before allowing access to the requested route.
+##### Returns
 
-#### Parameters
-- `route: ActivatedRouteSnapshot`: The route being activated.
-- `state: RouterStateSnapshot`: The current router state.
+- Type: `boolean`
+- Description: Returns `true` if access to the route is allowed, and `false` if access is denied.
 
-#### Returns
-- `boolean`: `true` if the user is authenticated and can access the route, otherwise `false`.
+##### Behavior
 
-### Implementation Details
-- The `authGuard` function checks if the requested route is in the list of protected routes and if the user is authenticated.
-- If the user is not authenticated and the route is protected, it displays an alert prompting the user to log in and redirects them to the home page.
-- If the user is authenticated or the route is not protected, it allows access to the requested route.
+- The `authGuard` function checks if the requested route is among the protected routes defined in `protectedRoutes`.
+- It also verifies if the user is logged in by checking the presence of a session token in the local storage.
+- If the requested route is protected and the user is not logged in, it displays an alert and redirects the user to the home page.
+- If the user is logged in and tries to access the login page, it redirects the user to the dashboard.
+- Otherwise, it allows access to other routes.
+
