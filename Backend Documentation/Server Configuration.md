@@ -26,6 +26,9 @@ This documentation outlines the configuration and middleware used in the server 
   - `/api/auth`: Authentication-related routes.
   - `/api/workout`: Routes for managing workouts.
   - `/api/product`: Routes for managing products.
+  - `/api/membership`: Routes for managing memberships.
+  - `/api/article`: Routes for managing articles.
+  - `/api/exercises`: Routes for managing exercises.
 
 ### Server Startup
 
