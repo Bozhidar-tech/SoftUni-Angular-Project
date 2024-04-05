@@ -66,13 +66,13 @@ header nav a:hover{
     margin-right: 20px;
     border: 1px solid #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     flex-direction: column;
 }
 
 .product-card:hover{
     border: 1px solid #FFFF00;
+    box-shadow: 0 0 10px #FFFF00;
 }
 
 .product-card:nth-child(5n) {

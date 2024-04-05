@@ -37,11 +37,13 @@
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #fff;
+  border-radius: 7px;
 }
 
 .video:hover{
   color: #FFFF00;
   border: 1px solid #FFFF00;
+  box-shadow: 0 0 10px #FFFF00;
 }
 
 .video p {

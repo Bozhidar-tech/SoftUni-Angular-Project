@@ -56,12 +56,15 @@ h1 {
 }
 
 .article {
+    border-radius: 7px;
     border: 1px solid #fff;
     padding: 20px;
+    background-color: #333;
 }
 
 .article:hover{
     border: 1px solid #FFFF00;
+    box-shadow: 0 0 10px #FFFF00;
 }
 
 .article h3 {
@@ -80,9 +83,10 @@ h1 {
 .tags span {
     display: inline-block;
     margin-right: 5px;
-    background-color: gray;
+    background-color: rgb(85, 85, 85);
     padding: 3px 8px;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: beige;
 }
 
 .actions {
