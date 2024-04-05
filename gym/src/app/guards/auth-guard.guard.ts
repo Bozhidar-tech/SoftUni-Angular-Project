@@ -25,6 +25,12 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
     return false;
   }
 
-  // Allow access to the route
+  // If the user is logged in and tries to access the login page, redirect to dashboard
+  if (state.url === '/login' && session) {
+    router.navigate(['/dashboard']);
+    return false;
+  }
+
+  // Allow access to other routes
   return true;
 };
