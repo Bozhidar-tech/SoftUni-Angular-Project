@@ -34,7 +34,7 @@ export class RegisterComponent {
   
       this.authService.registerService(this.registrationForm.value)
         .subscribe({
-          next: (res) => {
+          next: () => {
             alert("User Created!");
             this.router.navigate(['/login']);
           },
