@@ -24,6 +24,14 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registrationForm.valid) {
+      const password = this.registrationForm.get('password')!.value;
+      const repeatPassword = this.registrationForm.get('repeatPassword')!.value;
+      
+      if (password !== repeatPassword) {
+        alert("Passwords do not match. Please make sure both passwords are the same.");
+        return;
+      }
+  
       this.authService.registerService(this.registrationForm.value)
         .subscribe({
           next: (res) => {
