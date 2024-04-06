@@ -2,7 +2,7 @@ import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
-import { CreateSuccess} from "../utils/success.js";
+import { CreateSuccess } from "../utils/success.js";
 import { CreateError } from "../utils/error.js";
 import UserToken from "../models/UserToken.js";
 
@@ -101,7 +101,7 @@ export const sendEmail = async (req, res, next) => {
             service: 'gmail',
             auth: {
                 user: "bozhidar.nunev@gmail.com",
-                pass: ""
+                pass: "abvfyqlwdjlplgcx"
             }
         });
 
@@ -142,27 +142,32 @@ export const resetPassword = async (req, res, next) => {
     const token = req.body.token;
     const newPassword = req.body.password;
 
-    jwt.verify(token, process.env.JWT_SECRET, async(err, data)=>{
-        if(err){
-            return next(CreateError(500,"Reset link is expired"));
-        }else{
-            const response = data;
-            const user = await User.findOne({email: {$regex: '^' + response.email + '$', $options: 'i'}});
-            const salt = await bcrypt.genSalt(10);
-            const encryptedPassword = await bcrypt.hash(newPassword, salt);
-            user.password = encryptedPassword;
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+        if (err) {
+            console.error("Token verification error:", err);
+            return next(CreateError(500, "Reset link is expired or invalid"));
+        } else {
             try {
-                const updatedUser = await User.findOneAndUpdate(
-                    {_id: user._id},
-                    {$set: user},
-                    {new : true}
-                )
-                return next(CreateSuccess(200, "Password reseted!"))
+                const user = await User.findOne({ email: { $regex: '^' + decoded.email + '$', $options: 'i' } });
+                if (!user) {
+                    console.error("User not found.");
+                    return next(CreateError(404, "User not found"));
+                }
+
+                const salt = await bcrypt.genSalt(10);
+                const encryptedPassword = await bcrypt.hash(newPassword, salt);
+
+                user.password = encryptedPassword;
+                await user.save();
+
+                const successResponse = CreateSuccess(200, "Password reset successful");
+                return res.status(200).json(successResponse); // Return success response
             } catch (error) {
-                return next(CreateError(500, "Something Went Wrong"))
+                console.error("Database error:", error);
+                return next(CreateError(500, "Something went wrong while resetting the password"));
             }
         }
-    })
+    });
 };
 
 export const updateData = async (req, res, next) => {

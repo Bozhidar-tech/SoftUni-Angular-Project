@@ -35,23 +35,32 @@ export class ResetComponent implements OnInit {
     return null;
   }
 
-  reset(){
-    console.log("Form validity:", this.resetForm.valid);
-    let resetObj = {
-      token: this.token,
-      password: this.resetForm.value.password
-    }
-    this.authService.resetPasswordService(resetObj)
-    .subscribe({
-      next: (res)=>{
-        alert(res.message);
-        this.resetForm.reset()
-        this.router.navigate(['login']);
-      },
-      error: (err)=>{
-        alert(err.error.message)
+  reset() {
+    if (this.resetForm.valid) {
+      if (this.resetForm.value.password !== this.resetForm.value.confirmPassword) {
+        alert("Passwords do not match");
+        return;
       }
-    })
+  
+      let resetObj = {
+        token: this.token,
+        password: this.resetForm.value.password
+      };
+  
+      this.authService.resetPasswordService(resetObj)
+        .subscribe({
+          next: (res) => {
+            alert(res.message);
+            this.resetForm.reset();
+            this.router.navigate(['login']);
+          },
+          error: (err) => {
+            alert(err.error.message);
+          }
+        });
+    } else {
+      alert("Form is invalid. Please check the input fields.");
+    }
   }
 }
 

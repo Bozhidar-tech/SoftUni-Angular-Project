@@ -1,8 +1,12 @@
-export const CreateSuccess = (statusCode, successMessage, data)=>{
+export const CreateSuccess = (statusCode, successMessage, data = null) => {
     const successObj = {
         status: statusCode,
         message: successMessage,
-        data: data
+    };
+
+    if (data !== null) {
+        successObj.data = data;
     }
+
     return successObj;
-}
+};
